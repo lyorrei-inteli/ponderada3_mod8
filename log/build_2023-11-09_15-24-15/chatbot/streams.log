@@ -1,0 +1,27 @@
+[0.410s] Invoking command in '/home/lyorrei/Documents/Projects/ponderada3_mod8/src/chatbot': PYTHONPATH=/home/lyorrei/Documents/Projects/ponderada3_mod8/build/chatbot/prefix_override:/home/lyorrei/Documents/Projects/ponderada3_mod8/install/chatbot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/chatbot build --build-base /home/lyorrei/Documents/Projects/ponderada3_mod8/build/chatbot/build install --record /home/lyorrei/Documents/Projects/ponderada3_mod8/build/chatbot/install.log --single-version-externally-managed
+[0.517s] running egg_info
+[0.517s] writing ../../build/chatbot/chatbot.egg-info/PKG-INFO
+[0.517s] writing dependency_links to ../../build/chatbot/chatbot.egg-info/dependency_links.txt
+[0.517s] writing entry points to ../../build/chatbot/chatbot.egg-info/entry_points.txt
+[0.517s] writing requirements to ../../build/chatbot/chatbot.egg-info/requires.txt
+[0.517s] writing top-level names to ../../build/chatbot/chatbot.egg-info/top_level.txt
+[0.518s] reading manifest file '../../build/chatbot/chatbot.egg-info/SOURCES.txt'
+[0.519s] writing manifest file '../../build/chatbot/chatbot.egg-info/SOURCES.txt'
+[0.519s] running build
+[0.519s] running build_py
+[0.519s] copying chatbot/chatbot.py -> /home/lyorrei/Documents/Projects/ponderada3_mod8/build/chatbot/build/lib/chatbot
+[0.519s] running install
+[0.520s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[0.520s]   warnings.warn(
+[0.520s] running install_lib
+[0.520s] copying /home/lyorrei/Documents/Projects/ponderada3_mod8/build/chatbot/build/lib/chatbot/chatbot.py -> /home/lyorrei/Documents/Projects/ponderada3_mod8/install/chatbot/lib/python3.10/site-packages/chatbot
+[0.521s] byte-compiling /home/lyorrei/Documents/Projects/ponderada3_mod8/install/chatbot/lib/python3.10/site-packages/chatbot/chatbot.py to chatbot.cpython-310.pyc
+[0.521s] running install_data
+[0.522s] copying package.xml -> /home/lyorrei/Documents/Projects/ponderada3_mod8/install/chatbot/share/chatbot
+[0.522s] running install_egg_info
+[0.523s] removing '/home/lyorrei/Documents/Projects/ponderada3_mod8/install/chatbot/lib/python3.10/site-packages/chatbot-0.0.0-py3.10.egg-info' (and everything under it)
+[0.523s] Copying ../../build/chatbot/chatbot.egg-info to /home/lyorrei/Documents/Projects/ponderada3_mod8/install/chatbot/lib/python3.10/site-packages/chatbot-0.0.0-py3.10.egg-info
+[0.524s] running install_scripts
+[0.539s] Installing chatbot script to /home/lyorrei/Documents/Projects/ponderada3_mod8/install/chatbot/lib/chatbot
+[0.539s] writing list of installed files to '/home/lyorrei/Documents/Projects/ponderada3_mod8/build/chatbot/install.log'
+[0.553s] Invoked command in '/home/lyorrei/Documents/Projects/ponderada3_mod8/src/chatbot' returned '0': PYTHONPATH=/home/lyorrei/Documents/Projects/ponderada3_mod8/build/chatbot/prefix_override:/home/lyorrei/Documents/Projects/ponderada3_mod8/install/chatbot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/chatbot build --build-base /home/lyorrei/Documents/Projects/ponderada3_mod8/build/chatbot/build install --record /home/lyorrei/Documents/Projects/ponderada3_mod8/build/chatbot/install.log --single-version-externally-managed
