@@ -12,7 +12,7 @@ class CommandProcessor:
         comando = comando.lower().strip()
         for intencao, padroes in self.intencoes.items():
             for padrao in padroes:
-                match = re.match(padrao, comando)
+                match = re.match(padrao, comando, re.IGNORECASE)
                 if match:
                     resposta = self.acoes[intencao](match.group(1))
                     return resposta
@@ -40,23 +40,28 @@ class ChatbotNode(Node):
         response_msg.data = response
         self.publisher_.publish(response_msg)
 
+
+
 def main(args=None):
     rclpy.init(args=args)
 
     intencoes = {
         "ir_para": [
-            r"Vá para (?:o|a|os|as)? (.+)",
+            r"V[áa] para (?:o|a|os|as)? (.+)",
+            r"V[áa] para (.+)",
             r"Dirija-se (?:ao|à|aos|às)? (.+)",
+            r"Dirija-se para (?:o|a)? (.+)",
             r"Me leve para (?:o|a|os|as)? (.+)",
-            r"Quero ir (?:para|ao|à|aos|às)? (.+)",
-            r"Por favor, me encaminhe (?:para|ao|à|aos|às)? (.+)",
-            r"Pode me levar (?:para|ao|à|aos|às)? (.+)",
-            r"Encaminhe-me (?:para|ao|à|aos|às)? (.+)",
-            r"Quero ser levado (?:para|ao|à|aos|às)? (.+)",
-            r"Leve-me até (?:o|a|os|as)? (.+)",
+            r"Me leve (?:a|à)? (.+)",
+            r"Quero ir (?:para|ao|à|aos|às|a)? (.+)",
+            r"Por favor, me encaminhe (?:para|ao|à|a|aos|às)? (.+)",
+            r"Pode me levar (?:para|ao|à|a|aos|às)? (.+)",
+            r"Encaminhe-me (?:para|ao|à|aos|a|às)? (.+)",
+            r"Quero ser levado (?:para|ao|à|a|aos|às)? (.+)",
+            r"Leve-me at[eé] (?:o|a|os|as)? (.+)",
             r"Quero navegar (?:para|ao|à|aos|às)? (.+)",
             r"Desloque-se (?:para|ao|à|aos|às)? (.+)",
-            r"Preciso ir (?:para|ao|à|aos|às)? (.+)",
+            r"Preciso ir (?:para|ao|à|aos|às|a)? (.+)",
             # Outras variações podem ser adicionadas aqui
         ],
     }

@@ -10,6 +10,7 @@ setup.py
 ../../build/chatbot/chatbot.egg-info/zip-safe
 chatbot/__init__.py
 chatbot/chatbot.py
+chatbot/input_node.py
 resource/chatbot
 test/test_copyright.py
 test/test_flake8.py
