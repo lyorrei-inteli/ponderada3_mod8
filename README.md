@@ -31,7 +31,7 @@ Siga as instruções abaixo para instalar e executar o chatbot em seu ambiente R
    colcon build
    ```
 
-2. Dê um source do ambiente ROS2 (caso esteja utilizando zsh, mude o final do comando):
+2. Dê um source do arquivo de setup (caso esteja utilizando zsh, mude o final do comando):
 
    ```
    source install/local_setup.bash 
