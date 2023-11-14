@@ -51,5 +51,86 @@ Siga as instruções abaixo para instalar e executar o chatbot em seu ambiente R
 
 5. Insira os comandos no nó de entrada para interagir com o chatbot.
 
+## Explicação do Código
+
+O projeto consiste em dois scripts principais: `chatbot.py` e `input_node.py`. Abaixo, os componentes chave de cada um desses arquivos são detalhados.
+
+### chatbot.py
+
+Este arquivo contém a lógica principal do chatbot.
+
+#### Classe `CommandProcessor`
+```python
+class CommandProcessor:
+    def __init__(self, intencoes, acoes):
+        self.intencoes = intencoes
+        self.acoes = acoes
+
+    def processar_comando(self, comando):
+        # Processamento do comando aqui
+```
+
+- **Função `__init__`**: Inicializa o processador de comandos com dois dicionários: `intencoes` e `acoes`. `intencoes` mapeia padrões de expressão regular para identificar as intenções dos usuários. `acoes` associa essas intenções a funções específicas que o chatbot executará.
+- **Função `processar_comando`**: Analisa o comando do usuário, verifica se ele corresponde a algum padrão em `intencoes`, e executa a ação correspondente em `acoes`. Se o comando não for reconhecido, retorna uma mensagem de erro.
+
+#### Classe `ChatbotNode`
+
+```python
+class ChatbotNode(Node):
+    def __init__(self, command_processor):
+        # Inicialização do nó aqui
+
+    def listener_callback(self, msg):
+        # Lógica para receber e responder a comandos
+```
+
+- **Função `__init__`**: Define o nó ROS, inicializa o processador de comandos e configura um publisher e um subscriber.
+- **Função `listener_callback`**: Recebe mensagens do tópico `chat_commands`, processa essas mensagens usando `CommandProcessor`, e publica as respostas no tópico `chat_responses`.
+
+### input_node.py
+
+Este arquivo cria um nó para receber entrada do usuário.
+
+#### Classe `InputNode`
+
+```python
+class InputNode(Node):
+    def __init__(self):
+        # Configuração inicial do nó
+
+    def run(self):
+        # Loop para receber entrada do usuário
+
+    def publish_command(self, command):
+        # Publica comandos no tópico ROS
+```
+
+- **Função `__init__`**: Configura o nó ROS e inicializa um publisher para enviar comandos ao chatbot.
+- **Função `run`**: Mantém o nó rodando, aguardando entradas do usuário. Quando uma entrada é recebida, ela é publicada no tópico `chat_commands`.
+- **Função `publish_command`**: Publica o comando do usuário no tópico ROS.
+
+
+
+### Trechos de Código Relevantes
+
+- **Padrões de expressões regulares em `intencoes`**: Define como o chatbot interpreta os comandos do usuário. Por exemplo, padrões como `r"V[áa] para (.+)"` ou `r"Me leve para (.+)"` são usados para identificar a intenção do usuário de mover o robô para um local específico.
+
+   ```python
+   intencoes = {
+      "ir_para": [
+         r"V[áa] para (?:o|a|os|as)? (.+)",
+         # Outras expressões aqui
+      ],
+   }
+   ```
+
+- **Publicação e subscrição ROS**: O chatbot utiliza o sistema de publicação e subscrição do ROS para receber comandos (`chat_commands`) e enviar respostas (`chat_responses`).
+
+   ```python
+   # Configuração do publicador e assinante no ChatbotNode
+   self.publisher_ = self.create_publisher(String, 'chat_responses', 10)
+   self.subscription = self.create_subscription(String, 'chat_commands', self.listener_callback, 10)
+   ```
+
 ## Demonstração
 https://youtu.be/UQHfzfAOxk4
